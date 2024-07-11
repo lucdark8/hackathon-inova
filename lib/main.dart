@@ -11,43 +11,54 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: Container(
-        color: Colors.white70,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(color: Colors.red, height: 100, width: 100),
-                Container(color: Colors.orange, height: 100, width: 100),
-                Container(color: Colors.yellow, height: 100, width: 100)
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(color: Colors.blueGrey, height: 100, width: 100),
-                Container(color: Colors.blueAccent, height: 100, width: 100),
-                Container(color: Colors.blue, height: 100, width: 100)
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(color: Colors.teal, height: 100, width: 100),
-                Container(color: Colors.green, height: 100, width: 100),
-                Container(color: Colors.tealAccent, height: 100, width: 100)
-              ],
-            )
-          ],
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
         ),
-      ),
+        home: Scaffold(
+          appBar: AppBar(
+            title: Text('Une Parnamirim'),
+          ),
+          body: Column(
+            children: [
+              User_options('Debug'),
+              User_options('Testar'),
+              User_options('Sair'),
+            ],
+          ),
+        ));
+  }
+}
+
+class User_options extends StatelessWidget {
+  final String nomeOpcao;
+
+  const User_options(this.nomeOpcao, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Container(
+          color: Colors.blue,
+          height: 140,
+        ),
+        Container(
+            color: Colors.white,
+            height: 100,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(color: Colors.black26, height: 100, width: 72),
+                Text(nomeOpcao),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: Icon(Icons.arrow_drop_up),
+                )
+              ],
+            )),
+      ],
     );
   }
 }
